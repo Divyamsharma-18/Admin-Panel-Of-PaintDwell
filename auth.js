@@ -21,12 +21,12 @@ function login() {
 // Restrict access to admin panel
 if (!sessionStorage.getItem('isLoggedIn')) {
     // Redirect to login if not logged in
-    window.location.href = 'admin-login.html';
+    window.location.href = 'index.html';
 }
 
 // Logout function
 function logout() {
     // Clear sessionStorage and redirect to login page
     sessionStorage.removeItem('isLoggedIn');
-    window.location.href = 'admin-login.html';
+    window.location.href = 'index.html';
 }
