@@ -4,7 +4,7 @@ function login() {
     const password = document.getElementById('password').value;
 
     // Credential check
-    if (username === 'admin' && password === 'password123') {
+    if (username === 'admin' && password === 'password518') {
         // Store the login state in sessionStorage
         sessionStorage.setItem('isLoggedIn', true);
         
@@ -17,7 +17,6 @@ function login() {
         return false;
     }
 }
-
 
 // Restrict access to admin panel
 if (!sessionStorage.getItem('isLoggedIn')) {
