@@ -12,14 +12,12 @@
 <body>
   <div class="container">
     <aside class="sidebar">
-      <h2>Admin Menu</h2>
+      <h2>Admin Panel</h2>
       <ul>
-        <li><button id="view-orders-btn" onclick="toggleOrders()">View Orders</button></li>
-        <li><button id="toggle-products-btn" onclick="toggleManageOrders()">Manage Orders</button></li>
-        <li><button id="toggle-users-btn" onclick="displayManageUsers()">Manage Users</button></li>
-        <li><button id="toggle-reports-btn" onclick="viewReports()">View Reports</button></li>
-        <li><button id="toggle-settings-btn" onclick="displaySettings()">Settings</button></li>
-        <li><button id="logout" onclick="logout()">Logout</button></li>
+        <li><button id="manage-orders-btn" onclick="toggleManageOrders()">Manage Orders</button></li>
+        <!-- <li><button id="viewReportsBtn">View Reports</button></li> -->
+        <!-- <li><button id="settings-btn" onclick="displaySettings()">Settings</button></li> -->
+        <li><button><a href="admin-login.html">Logout</a></button></li>
       </ul>
     </aside>
 
@@ -27,17 +25,13 @@
       <h1>Welcome to the Admin Dashboard</h1>
       <p>Here you can manage your application.</p>
 
-      <div id="ordersContainer">
+
+      <div id="ordersContainer" style="display: block;"> <!-- Default to visible -->
         <!-- Orders will be appended here -->
       </div>
       
 
-
-
-      
-    </main>
-  </div>
-
+      <div id="reportsContainer"></div>
 
 
   <script src="js/admin.js"></script>
