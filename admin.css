@@ -1,7 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   display: flex;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
 }
 
 .container {
@@ -13,8 +22,8 @@ body {
   background-color: #343a40;
   color: white;
   padding: 20px;
-  width: 185px;
-  height: 100vh; 
+  width: 200px;
+  height: 100%; 
 }
 
 .sidebar h2 {
@@ -38,6 +47,11 @@ body {
 .sidebar ul li a:hover {
   text-decoration: underline;
 }
+
+.sidebar ul li button{
+  font-size: 15px;
+}
+
 
 .main-content {
   flex-grow: 1;
@@ -69,8 +83,8 @@ body {
 
   .sidebar {
     width: 100%;
-    height: auto; /* Allow sidebar to shrink */
-    padding: 10px;
+    height: auto;
+    padding-left: 30px;
   }
 
   .main-content {
@@ -78,13 +92,10 @@ body {
   }
 }
 
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
+button{
+  cursor: pointer;
 }
+
 
 .container {
   display: flex;
@@ -94,6 +105,14 @@ body {
 .main-content {
   flex-grow: 1;
   padding: 20px;
+}
+
+.main-content h1{
+  font-size: xx-large;
+}
+.main-content p{
+  font-size: x-large;
+  margin-top: 10px;
 }
 
 h1 {
@@ -159,11 +178,71 @@ th {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  margin-top: 20px;
+  padding-bottom: 5px;
 }
 
 
 #ordersContainer div{
   background-color: #343a40;
-  padding-left: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
   color: whitesmoke;
+}
+
+#ordersContainer div ul{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+#ordersContainer div button{
+  margin: 10px;
+  font-size: 15px;
+  height: 35px;
+  width: 140px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #343a40;
+}
+
+
+#ordersContainer div h3{
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+#ordersContainer div p{
+  font-size: larger;
+  margin-bottom: 10px;
+  margin-left: 25px;
+}
+
+#ordersContainer div h4{
+  font-size: x-large;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+
+
+
+@media (min-width: 768px) {
+  .container{
+    min-height: 100vh;
+    display: flex;
+    flex: 1;
+  }
+
+  aside{
+    flex-shrink: 0; 
+    min-height: 100vh;
+  }
+
+  main{
+    flex: 1; 
+    overflow-y: auto; 
+  }
 }
