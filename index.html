@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-    <link rel="stylesheet" href="login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/admin.js"></script>
 </head>
+
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id="login-form" onsubmit="return login()">
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" required>
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" required>
-            </div>
-            <button type="submit">Login</button>
-        </form>
-        <p id="error-message" style="color: red; display: none;">Invalid credentials!</p>
-    </div>
-    
-    <script src="auth.js"></script>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Admin Panel</h2>
+      <ul>
+        <li><button id="manage-orders-btn" onclick="toggleManageOrders()">View Orders</button></li>
+        <li><button id="user-info-btn">Users Info</button></li>
+        <!-- <li><button id="settings-btn" onclick="displaySettings()">Settings</button></li> -->
+        <li><button><a href="index.html">Logout</a></button></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <h1>Welcome to the Admin Dashboard</h1>
+      <p>Here you can manage your application.</p>
+
+
+      <div id="ordersContainer" style="display: block;"> <!-- Default to visible -->
+        <!-- Orders will be appended here -->
+      </div>
+      
+
+      <div id="reportsContainer"></div>
+
+      <div id="usersContainer"></div>
+
+
+  <script src="js/admin.js"></script>
 </body>
+
 </html>
