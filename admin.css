@@ -246,3 +246,29 @@ th {
     overflow-y: auto; 
   }
 }
+
+
+#usersContainer {
+  margin-top: 20px;
+  gap: 30px;
+}
+
+#usersContainer div{
+  background-color: #343a40;
+  color: whitesmoke;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.userName{
+  font-size: 24px;
+}
+
+#usersContainer div p{
+  font-size: 20px;
+}
+
+.userPhone,
+.userAdd{
+  margin-left: 20px;
+}
