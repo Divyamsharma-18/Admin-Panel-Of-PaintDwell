@@ -1,11 +1,3 @@
-// Function to toggle between sections (View Orders / Manage Orders)
-function toggleManageOrders() {
-  const ordersContainer = document.getElementById('ordersContainer');
-  ordersContainer.innerHTML = ''; // Clear the orders container
-  fetchOrders('manage'); // Fetch orders for Manage Orders section
-}
-
-
 // Fetch orders and render them
 async function fetchOrders(section) {
   try {
@@ -106,3 +98,67 @@ async function deleteOrder(orderName, orderPhone) {
     console.error('Error deleting order:', error);
   }
 }
+
+
+// Fetch user info and render it
+async function fetchUserInfo() {
+  try {
+    const response = await fetch('https://paintdwell-backend.onrender.com/api/orders');
+    const orders = await response.json();
+    
+    const usersContainer = document.getElementById('usersContainer');
+    usersContainer.innerHTML = ''; // Clear previous user info
+
+    // Use a Set to keep track of unique users
+    const usersSet = new Set();
+
+    orders.forEach(order => {
+      // Create a unique identifier for each user
+      const userIdentifier = `${order.name}-${order.phone}`;
+      if (!usersSet.has(userIdentifier)) {
+        usersSet.add(userIdentifier);
+        
+        const userElement = document.createElement('div');
+        userElement.innerHTML = `
+          <h3 class='userName'>User: ${order.name}</h3>
+          <p class='userAdd'>Address: ${order.address}, ${order.city}, ${order.zip}</p>
+          <p class='userPhone'>Phone: ${order.phone}</p>
+        `;
+
+        usersContainer.appendChild(userElement);
+      }
+    });
+  } catch (error) {
+    console.error('Failed to fetch user info:', error);
+  }
+}
+
+// Add an event listener for the user info button
+document.getElementById('user-info-btn').addEventListener('click', fetchUserInfo);
+
+
+// Toggle Orders view
+function toggleManageOrders() {
+  const ordersContainer = document.getElementById('ordersContainer');
+  const usersContainer = document.getElementById('usersContainer');
+
+  ordersContainer.style.display = 'block';  // Show orders
+  usersContainer.style.display = 'none';     // Hide user info
+
+  fetchOrders(); // Fetch and display orders
+}
+
+// Toggle User Info view
+function toggleUserInfo() {
+  const ordersContainer = document.getElementById('ordersContainer');
+  const usersContainer = document.getElementById('usersContainer');
+
+  ordersContainer.style.display = 'none';    // Hide orders
+  usersContainer.style.display = 'block';     // Show user info
+
+  fetchUserInfo(); // Fetch and display user info
+}
+
+// Attach event listeners
+document.getElementById('manage-orders-btn').addEventListener('click', toggleManageOrders);
+document.getElementById('user-info-btn').addEventListener('click', toggleUserInfo);
