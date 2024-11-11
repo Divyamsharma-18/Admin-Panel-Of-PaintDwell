@@ -229,7 +229,7 @@ th {
 
 
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .container{
     min-height: 100vh;
     display: flex;
@@ -245,6 +245,7 @@ th {
     flex: 1; 
     overflow-y: auto; 
   }
+
 }
 
 
@@ -271,4 +272,9 @@ th {
 .userPhone,
 .userAdd{
   margin-left: 20px;
+}
+
+
+iframe{
+  margin-top: 29px;
 }
