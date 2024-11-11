@@ -2,8 +2,10 @@
 function toggleManageOrders() {
   const ordersContainer = document.getElementById('ordersContainer');
   const usersContainer = document.getElementById('usersContainer');
+  const iframeContainer = document.getElementById('iframeContainer');
   ordersContainer.innerHTML = ''; // Clear the orders container
   usersContainer.style.display = 'none'; // Hide user info
+  iframeContainer.style.display = 'none';
   ordersContainer.style.display = 'block'; // Show orders
   fetchOrders('manage'); // Fetch orders for Manage Orders section
 }
@@ -12,8 +14,10 @@ function toggleManageOrders() {
 function toggleUserInfo() {
   const ordersContainer = document.getElementById('ordersContainer');
   const usersContainer = document.getElementById('usersContainer');
+  const iframeContainer = document.getElementById('iframeContainer');
   ordersContainer.style.display = 'none'; // Hide orders
   usersContainer.innerHTML = ''; // Clear previous user info
+  iframeContainer.style.display = 'none';
   usersContainer.style.display = 'block'; // Show user info
   fetchUserInfo(); // Fetch and display user info
 }
@@ -149,6 +153,22 @@ async function deleteOrder(orderName, orderPhone) {
     console.error('Error deleting order:', error);
   }
 }
+
+
+
+// Function to show the Reports iframe
+document.getElementById('view-reports-btn').addEventListener('click', function() {
+  const ordersContainer = document.getElementById('ordersContainer');
+  const usersContainer = document.getElementById('usersContainer');
+  const iframeContainer = document.getElementById('iframeContainer');
+
+  // Hide all sections
+  ordersContainer.style.display = 'none';
+  usersContainer.style.display = 'none';
+
+  // Show iframe for reports
+  iframeContainer.style.display = 'block';
+});
 
 // Attach event listeners
 document.getElementById('manage-orders-btn').addEventListener('click', toggleManageOrders);
