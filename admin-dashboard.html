@@ -16,7 +16,7 @@
       <ul>
         <li><button id="manage-orders-btn" onclick="toggleManageOrders()">View Orders</button></li>
         <li><button id="user-info-btn">Users Info</button></li>
-        <!-- <li><button id="settings-btn" onclick="displaySettings()">Settings</button></li> -->
+        <li><button id="view-reports-btn">Website Analytics</button></li>
         <li><button><a href="index.html">Logout</a></button></li>
       </ul>
     </aside>
@@ -35,6 +35,9 @@
 
       <div id="usersContainer"></div>
 
+      <div id="iframeContainer" style="display: none;">
+        <iframe width="80%" height="800px" src="https://lookerstudio.google.com/embed/reporting/2b25c48a-e64b-4caa-876c-a24e6e96f0ec/page/lo1PE" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+      </div>
 
   <script src="admin.js"></script>
 </body>
